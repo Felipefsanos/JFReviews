@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JeF Reviews</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free games Reviews">
+        <meta name="keywords" content="Review, games, jogos, consoles, comparação">
+        <meta name="author" content="J e F">
+        <meta name="viewport" content="width=device-width, initial-sacel=1.0">
+        <link rel="shortcut icon" href="Imagens_home/icone.ico"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/jogo_style.css" rel="stylesheet" type="text/css"/>
+        <!--Meu CSS-->
+        <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script  src="js/masonry-docs.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="js/jogo.js" type="text/javascript"></script> <!--Meu JS-->
+    </head>
+    <body>
+        <div class="container-fluid" id="interface">
+            <!-- Barra de navegação -->
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#conteudo_barra" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="conteudo_barra">
+                        <ul class="nav navbar-nav">
+                            <li><a href="jogo.html" id="brilho">Lançamentos</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="brilho">Consoles<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" >PC</a></li>
+                                    <li><a href="#" >Playstation 3</a></li>
+                                    <li><a href="#" >Playstation 4</a></li>
+                                    <li><a href="#" >Xbox 360</a></li>
+                                    <li><a href="#" >Xbox One</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" id="barra_pesquisa">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Procurar Jogo" id="barra">
+                            </div>
+                            <button type="submit" class="btn btn-default" id="bt_buscar">Buscar</button>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown" id="drop">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="brilho">Login
+                                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                                </a>
+                                <ul class="dropdown-menu col-xs-12" id="drop_list">
+                                    <li>
+                                        <form class="form-group"  action="#" method="post" name="login">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="Email" placeholder="exemplo@exemplo.com" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="Password" class="form-control" id="Senha" placeholder="Senha" required="required" maxlength="20" name="senha">
+                                            </div>
+                                            <button type="submit" class="btn navbar-btn" id="bt_enter" onclick="validar()">Log In</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-toggle" id="brilho" role="button" data-toggle="modal" data-target=".bs-example-modal-sm" aria-haspopup="true" aria-expanded="false">Cadastre-se<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <!-- Fim da barra de navegação -->
+            <!-- Modal de Cadastro -->
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" id="cabecalhoModal">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Cadastro</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-group"  action="#" method="post" name="cadastro">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="Nome" placeholder="Nome Completo" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" name="Data" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="Email" placeholder="exemplo@exemplo.com" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="Conf_email" placeholder="exemplo@exemplo.com" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="Senha" placeholder="Senha" required="required" maxlength="20" id="senha">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="Confirmar_senha" placeholder="Confirmar senha" required="required" maxlength="20">
+                                </div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                <button type="submit" value="Enviar" class="btn btn-primary" name="bt_confirma" onclick="validarCadastro()">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim do modal de cadastro -->
+            <div class="container-fluid" id="corpo">
+                <div class="col-sm-6 col-md-6" id="imagens">
+                    <section class="carousel slide" id="carrosel" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carrosel" data-slide-to="0" class="active"></li>
+                            <li data-target="#carrosel" data-slide-to="1"></li>
+                            <li data-target="#carrosel" data-slide-to="2"></li>
+                            <li data-target="#carrosel" data-slide-to="3"></li>
+                            <li data-target="#carrosel" data-slide-to="4"></li>
+                        </ol>
+                        <div class="carousel-inner" role="listbox">
+                            <figure class="active item">
+                                <img src="Imagens_jogo/overwatch_capa.png" class="img-responsive" alt="Responsive image">
+                            </figure>
+                            <figure class="item">
+                                <img src="Imagens_jogo/overwatch_jogo_2.png" class="img-responsive" alt="Responsive image">
+                            </figure>
+                            <figure class="item">
+                                <img src="Imagens_jogo/overwatch_jogo_3.png" class="img-responsive" alt="Responsive image">
+                            </figure>
+                            <figure class="item">
+                                <img src="Imagens_jogo/overwatch_jogo_4.png" class="img-responsive" alt="Responsive image">
+                            </figure>
+                            <figure class="item">
+                                <img src="Imagens_jogo/overwatch_jogo_5.png" class="img-responsive" alt="Responsive image">
+                            </figure>
+                        </div>
+                        <a class="left carousel-control" href="#carrosel" role="button" data-slide="prev" id="brilho">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="right carousel-control" href="#carrosel" role="button" data-slide="next" id="brilho">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </section>
+                </div>
+                <div class="col-sm-6 col-md-6 container-fluid" id="notas">
+                    <h1 id="titulo_jogo">OverWatch</h1>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </div>
+                        <div class="panel-footer">
+                            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                <div class="btn-group" role="group" id="techmundo">
+                                    <a href="http://games.tecmundo.com.br/?utm_source=hometecmundo&utm_medium=games" target="_blank">
+                                        <button type="button" class="btn btn-warning">Techmundo</button>
+                                    </a>
+                                </div>
+                                <div class="btn-group" role="group" id="metacritic">
+                                    <a href="https://www.metacritic.com.br" target="_blank">
+                                        <button type="button" class="btn btn-info">Metacritic</button>
+                                    </a>
+                                </div>
+                                <div class="btn-group" role="group" id="ign">
+                                    <a href="http://br.ign.com/" target="_blank">
+                                        <button type="button" class="btn btn-danger">IGN</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-success" id="painel">
+                        <div class="panel-heading">
+                            <h4 id="coment">Comentários</h4>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-sm-6 col-md-6" id="piechart"></div>
+                            <div class="col-sm-6 col-md-6" id="coment_area">
+                                <div class="media" id="coment_digit" name="cometarios">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true" id="icon_user"></span>
+                                        </a>
+                                    </div>
+                                    <div class="media-body" id="box_text">
+                                        <textarea cols="23" rows="5" placeholder="Deixe seu comentário aqui (200 caracteres)" maxlength="200" id="coment_user" name="comentario_texto"></textarea>
+                                    </div>
+                                    <button type="reset" class="btn btn-info" id="bt_enviar" onclick="validarComent()">Enviar</button>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon-user" aria-hidden="true" id="icon_user"></span>
+                                        </a>
+                                    </div>
+                                    <div class="media-body" id="box_text">
+                                        <div id="balao">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad amet aperiam asperiores, deleniti eveniet maiores nemo nisi, nostrum officiis quam quas quis quo reiciendis soluta sunt velit veniam, voluptate. Adipisci.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="row">
+                                <div id="classificacao" class="col-sm-6 col-md-6">
+                                    <h4>O que você achou?</h4>
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  Gostei</button>
+                                        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  Não Gostei</button>
+                                    </div>
+                                </div>
+                                <div id="se_jogou" class="col-sm-6 col-md-6">
+                                    <h4>Já jogou?</h4>
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>  Sim</button>
+                                        <button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>  Não</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div id="rodape" >
+                            <h4>Contato:</h4>
+                            <h4>Email: jefreviews@gmail.com</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div id="rodape" >
+                            <a href="https://www.facebook.com" target="_blank"><img src="Imagens_home/facebook_icone.png"></a>
+                            <a href="https://www.twitter.com" target="_blank"><img src="Imagens_home/twitter_icone.png"></a>
+                            <a href="https://br.linkedin.com" target="_blank"><img src="Imagens_home/linkedin_icone.png"></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

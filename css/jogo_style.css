@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech');
+
+/*Plano de fundo*/
+
+body
+{
+    background: url("../Imagens_home/aloy_back.png") no-repeat -500px -20px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding-top: 40px;
+}
+/*Fundo preto com a sombra de leve*/
+div#interface
+{
+    width: 90%;
+    height: 95%;
+    margin: -22px auto 0px auto;
+    background-color: rgba(0,0,0,.3);
+    box-shadow: 0px 0px 10px #FBFBEF;
+    padding: 5px;
+}
+
+ul#drop_list
+ {
+     background-color: rgba(0,0,0,.5);
+     padding: 10px;
+     width: 400px;
+ }
+
+button#bt_buscar:hover {
+    border-color: #00CED1;
+}
+
+button#bt_buscar:focus{
+    background-color: #00CED1;
+    color: white;
+}
+
+@media screen and (max-width: 768px) {
+
+
+    input#barra {
+        width: 100%;
+    }
+
+    ul#drop_list{
+        background: black;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    button#bt_enter{
+        position: absolute;
+        top: 0px;
+        right: 10px;
+    }
+
+}
+
+a#brilho{
+    text-decoration: none;
+    color: white;
+}
+
+a#brilho:hover{
+    text-decoration: none;
+    text-shadow: 0px 0px 5px #08cce9;
+    color: white;
+}
+
+/*Login*/
+
+button#bt_enter{
+    float: right;
+}
+
+button#bt_enter:hover{
+    border-color: #00CED1;
+}
+
+button#bt_enter:focus{
+    background-color: #00CED1;
+    color: white;
+}
+
+/*Fim do Login*/
+
+div#cabecalhoModal{
+    background-color: #00CED1;
+    color: white;
+    text-align: center;
+}
+
+div#corpo{
+    margin-top: 50px; 
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+div#imagens {
+    margin-bottom: 15px;
+}
+
+.carousel-indicators li{
+    width: 30px;
+}
+
+.carousel-indicators .active{
+    width: 30px;
+}
+
+h1#titulo_jogo{
+    color: white;
+    font-family: 'Share Tech', sans-serif;
+    text-align: center;
+}
+
+div#notas{
+    float: right;
+}
+
+div#notas > p{
+    margin: 10px;
+    background-color: rgba(0,0,0,.5);
+    color: white;
+    border-radius: 5px;
+}
+
+div#piechart{
+    width: 50%;
+    height: 250px;
+    border-right: 1px dashed black;
+}
+
+@media screen and (max-width: 1300px) {
+    div#piechart{
+        border-right: none;
+        text-align: center;
+    }
+
+    textarea#coment_user{
+        width: 100%;
+    }
+
+    div#piechart{
+        width: 100%;
+    }
+
+    div#coment_area{
+        width: 100%;
+    }
+
+}
+
+
+h4#coment{
+    text-align: center;
+}
+
+span#icon_user{
+    font-size: 80px;
+}
+
+div#coment_digit{
+    border-bottom: 1px solid black;
+}
+
+div#box_text{
+    text-align: center;
+    height: 30px;
+}
+textarea#coment_user{
+    resize: none;
+    height: 80px;
+    overflow: hidden;
+    border: 1px solid darkgray;
+    /*background-color: red;*/
+    margin: 2px auto 2px auto;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgb(0, 0, 0);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(0, 0, 0, .6);
+    width: 100%;
+}
+
+textarea#coment_user:focus{
+    border: 5px;
+    border-color: #08cce9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(8, 204, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(8, 204, 233, 0.6);
+}
+
+button#bt_enviar{
+    float: right;
+    width: 71%;
+    margin-bottom: 5px;
+}
+
+div#balao{
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 10px;
+    border: 1px dashed black;
+}
+
+footer{
+    clear: both;
+    border-top: 2px solid white;
+}
+
+div#rodape{
+    display: block;
+    color: white;
+}
+
+div#rodape > a{
+    float: right;
+}

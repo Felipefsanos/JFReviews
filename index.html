@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>JeF Reviews</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Free games Reviews">
+        <meta name="keywords" content="Review, games, jogos, consoles, comparação">
+        <meta name="author" content="J e F">
+        <meta name="viewport" content="width=device-width, initial-sacel=1.0">
+        <link rel="shortcut icon" href="Imagens_home/icone.ico"/>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/index_style.css" rel="stylesheet" type="text/css"/>
+        <!--Meu CSS-->
+        <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="js/bootstrap.js" type="text/javascript"></script>
+        <script  src="js/masonry-docs.min.js" type="text/javascript"></script>
+        <script src="js/index.js" type="text/javascript"></script> <!--Meu JS-->
+    </head>
+    <body>
+        <div class="container-fluid" id="interface">
+            <!-- Barra de navegação -->
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#conteudo_barra" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" id="icone" href="index.html">J&F Reviews</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="conteudo_barra">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#">Lançamentos</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Consoles<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">PC</a></li>
+                                    <li><a href="#">Playstation 3</a></li>
+                                    <li><a href="#">Playstation 4</a></li>
+                                    <li><a href="#">Xbox 360</a></li>
+                                    <li><a href="#">Xbox One</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <form class="navbar-form navbar-right" id="barra_pesquisa">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Procurar Jogo" id="barra">
+                            </div>
+                            <button type="submit" class="btn btn-default" id="bt_buscar">Buscar</button>
+                        </form>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown" id="drop">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Login
+                                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                                </a>
+                                <ul class="dropdown-menu col-xs-12" id="drop_list">
+                                    <li>
+                                        <form class="form-group"  action="#" method="post" name="login">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="Email" placeholder="exemplo@exemplo.com" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="Password" class="form-control" id="Senha" placeholder="Senha" required="required" maxlength="20" name="senha">
+                                            </div>
+                                            <button type="submit" class="btn navbar-btn" id="bt_enter" onclick="validar()">Log In</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-toggle" role="button" data-toggle="modal" data-target=".bs-example-modal-sm" aria-haspopup="true" aria-expanded="false">Cadastre-se<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+            <!-- Fim da barra de navegação -->
+            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Small modal</button>-->
+            <!-- Modal de Cadastro -->
+            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header" id="cabecalhoModal">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Cadastro</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form class="form-group"  action="#" method="post" name="cadastro">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" name="Nome" placeholder="Nome Completo" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="date" class="form-control" name="Data" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="Email" placeholder="exemplo@exemplo.com" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" name="Conf_email" placeholder="exemplo@exemplo.com" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="Senha" placeholder="Senha" required="required" maxlength="20" id="senha">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" name="Confirmar_senha" placeholder="Confirmar senha" required="required" maxlength="20">
+                                </div>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" value="Enviar" class="btn btn-primary" name="bt_confirma" onclick="validarCadastro()">Cadastrar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fim do modal de cadastro -->
+            <!-- Início do slider do topo -->
+            <div>
+                <section class="carousel slide" id="carrosel" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carrosel" data-slide-to="0" class="active"></li>
+                        <li data-target="#carrosel" data-slide-to="1"></li>
+                        <li data-target="#carrosel" data-slide-to="2"></li>
+                        <li data-target="#carrosel" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                        <figure class="active item">
+                            <img src="Imagens_home/ellie.png" class="img-responsive" alt="Responsive image">
+                            <figcaption class="carousel-caption">
+                                <h4>The Last of Us Part 2</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="item">
+                            <img src="Imagens_home/final_fantasy.png" class="img-responsive" alt="Responsive image">
+                            <figcaption class="carousel-caption">
+                                <h4>Final Fantasy XV</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="item">
+                            <img src="Imagens_home/the_forest.png" class="img-responsive" alt="Responsive image">
+                            <figcaption class="carousel-caption">
+                                <h4>The Forest</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </figcaption>
+                        </figure>
+                        <figure class="item">
+                            <img src="Imagens_home/watch_dogs.png" class="img-responsive" alt="Responsive image">
+                            <figcaption class="carousel-caption">
+                                <h4>Watch Dogs 2</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+                    <a class="left carousel-control" href="#carrosel" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#carrosel" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </section>
+            </div>
+            <div id="corpo">
+                <h4 id="lancamentos">Lançamentos</h4>
+            </div>
+            <div class="row container-fluid">
+                <div class="col-sm-6 col-md-4" id="blocos_lancamentos">
+                    <div class="thumbnail container-fluid">
+                        <img src="Imagens_home/prey.png" alt="..." class="image-responsive">
+                        <div class="caption">
+                            <h3><a href="jogo.html" id="titulo_jogo">Prey</a></h3>
+                            <p class="lead">Em Prey, você acorda abordo de Talos I, uma estação espacial orbitando a lua no ano de 2032. Você é o elemento chave de um experimento destinado a alterar a humanidade para sempre, mas algo deu terrivelmente errado. A estação espacial foi tomada por alienígenas hostis e agora você está sendo caçado. Enquanto procura pelos segredos terríveis de Talos I e de seu próprio passado, você precisa sobreviver usando as ferramentas que encontrar na estação, sua astúcia, armas e habilidades alucinantes.
+                            </p>
+                            <h5 class="text-center">Reviews</h5>
+                            <p class="btn-group-justified">
+                                <a href="http://www.metacritic.com/game/playstation-4/prey" target="_blank" class="btn btn-success" role="button">Metacritic</a>
+                                <a href="http://games.tecmundo.com.br/prey-2016" target="_blank" class="btn btn-warning"" role="button">Tecmundo</a>
+                            </p>
+                            <h5 class="text-center">Onde comprar</h5>
+                            <p class="btn-group-justified">
+                                <a href="http://store.steampowered.com/agecheck/app/480490/" target="_blank" class="btn btn-info" id="button_pc" role="button">PC</a>
+                                <a href="https://store.playstation.com/#!/pt-br/jogos/prey/cid=UP1003-CUSA04493_00-PREYPS4FULLGAME1" target="_blank" class="btn btn-primary" role="button">PS4</a>
+                                <a href="https://www.microsoft.com/pt-br/store/p/prey/bqmvwcmb8p59" target="_blank" class="btn btn-success" role="button">XBOX ONE</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 row-centro" id="blocos_lancamentos">
+                    <div class="thumbnail container-fluid">
+                        <img src="Imagens_home/littleNigthmares.png" alt="..." class="image-responsive">
+                        <div class="caption">
+                            <h3><a href="jogo.html" id="titulo_jogo">Little Nightmares</a></h3>
+                            <p class="lead">Mergulhe em Little Nightmares, um fantástico conto sombrio que o fará enfrentar seus medos de infância! Ajude Six a fugir de A Bocarra – um navio imenso e misterioso habitado por almas corrompidas que procuram sua próxima refeição. À medida que você progride na sua jornada, explore a mais perturbadora casa de bonecas como uma prisão para dela fugir e um parquinho cheio de segredos para se descobrir. Reconecte-se com sua criança interior para soltar a sua imaginação e encontrar a saída!
+                            </p>
+                            <h5 class="text-center">Reviews</h5>
+                            <p class="btn-group-justified">
+                                <a href="http://www.metacritic.com/game/playstation-4/little-nightmares" target="_blank" class="btn btn-success" role="button">Metacritic</a>
+                                <a href="http://games.tecmundo.com.br/little-nightmares" target="_blank" class="btn btn-warning" role="button">Tecmundo</a>
+                            </p>
+                            <h5 class="text-center">Onde comprar</h5>
+                            <p class="btn-group-justified">
+                                <a href="http://store.steampowered.com/app/424840/Little_Nightmares/" target="_blank" class="btn btn-info" id="button_pc" role="button">PC</a>
+                                <a href="https://store.playstation.com/#!/pt-br/jogos/little-nightmares/cid=UP0700-CUSA05929_00-LITTLENIGHTMARES" target="_blank" class="btn btn-primary" role="button">PS4</a>
+                                <a href="https://www.microsoft.com/pt-BR/store/p/Little-Nightmares/BWD88K55MK5W" target="_blank" class="btn btn-success" role="button">XBOX ONE</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 row-direita" id="blocos_lancamentos">
+                    <div class="thumbnail container-fluid">
+                        <img src="Imagens_home/outlast2.png" alt="..." class="image-responsive">
+                        <div class="caption">
+                            <h3><a href="jogo.html" id="titulo_jogo">Outlast 2</a></h3>
+                            <p class="lead">Você é Blake Langermann, um operador de câmara que trabalha com a sua esposa, Lynn. Sois ambos jornalistas de investigação, dispostos a correr riscos e ir até ao fundo para descobrir as histórias que mais ninguém se atreveria a investigar.
+                                Esta a seguir o rastro das pistas que tiveram origem no assassinato aparentemente impossível de uma mulher grávida, apenas conhecida como Jane Doe.
+                                A investigação conduziu-vos até ao centro do deserto do Arizona, a uma escuridão tão profunda que ninguém poderia lançar um fio de luz sobre ela, e a uma corrupção tão intensa que enlouquecer poderá ser a solução mais sensata.
+                            </p>
+                            <h5 class="text-center">Reviews</h5>
+                            <p class="btn-group-justified">
+                                <a href="http://www.metacritic.com/game/pc/outlast-2" target="_blank" class="btn btn-success" role="button">Metacritic</a>
+                                <a href="http://games.tecmundo.com.br/outlast-2" target="_blank" class="btn btn-warning" role="button">Tecmundo</a>
+                            </p>
+                            <h5 class="text-center">Onde comprar</h5>
+                            <p class="btn-group-justified">
+                                <a href="http://store.steampowered.com/app/414700/agecheck" target="_blank" class="btn btn-info" id="button_pc" role="button">PC</a>
+                                <a href="https://store.playstation.com/#!/pt-br/jogos/outlast-2/cid=UP2113-CUSA06623_00-OUTLAST200000000" target="_blank" class="btn btn-primary" role="button">PS4</a>
+                                <a href="https://www.microsoft.com/pt-br/store/p/outlast-2/bzvpnm21tcjc" target="_blank" class="btn btn-success" role="button">XBOX ONE</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Tabs -->
+            <div id="abas" >
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#pc" aria-controls="pc" role="tab" data-toggle="tab">PC</a></li>
+                        <li role="presentation"><a href="#ps3" aria-controls="ps3" role="tab" data-toggle="tab">PS3</a></li>
+                        <li role="presentation"><a href="#ps4" aria-controls="ps4" role="tab" data-toggle="tab">PS4</a></li>
+                        <li role="presentation"><a href="#xbox360" aria-controls="xbox360" role="tab" data-toggle="tab">XBOX 360</a></li>
+                        <li role="presentation"><a href="#xboxone" aria-controls="xboxone" role="tab" data-toggle="tab">XBOX ONE</a></li>
+                    </ul>
+                    <!-- Conteúdo das tabs -->
+                    <div class="tab-content">
+                        <!-- Início da tab PC -->
+                        <div role="tabpanel" class="tab-pane active container-fluid" id="pc">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/the_forest_capa.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/bards_tale_capa.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/fortnite_capa.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/fullthrottle_capa.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/might_heroes_capa.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/star_craft_capa.png" alt="..."></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container-fluid" id="ps3">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/fallout_capa_ps3.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/god_of_war_capa_ps3.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/need_carbon_capa_ps3.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/resident_evil_capa_ps3.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/the_last_capa_ps3.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/batman_capa_ps3.png" alt="..."></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container-fluid" id="ps4">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/horizon_capa_ps4.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/infamous_capa_ps4.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/mortal_capa_ps4.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/the_crew_capa_ps4.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/uncharted_capa_ps4.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/street_capa_ps4.png" alt="..."></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container-fluid" id="xbox360">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/fable_capa_xbox.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/forza_2_capa_xbox.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/gears_war_capa_xbox.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/halo_4_capa_xbox.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/just_dance_capa_xbox.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/tomb_raider_capa_xbox.png" alt="..."></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane container-fluid" id="xboxone">
+                            <div class="row">
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/assassins_capa_one.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/doom_capa_one.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/forza_3_capa_one.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/gears_war_4_capa_one.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/overwatch_capa_one.png" alt="..."></a>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail" id="capas">
+                                        <a href="jogo.html"><img src="Imagens_home/watch_dogs_capa_one.png" alt="..."></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!--fecha os conteúdos das tabs-->
+                </div>
+            </div>
+            <footer>
+                <div class="row">
+                    <div class="col-sm-6 col-md-6">
+                        <div id="rodape" >
+                            <h4>Contato:</h4>
+                            <h4>Email: jefreviews@gmail.com</h4>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div id="rodape" >
+                            <a href="https://www.facebook.com" target="_blank"><img src="Imagens_home/facebook_icone.png"></a>
+                            <a href="https://www.twitter.com" target="_blank"><img src="Imagens_home/twitter_icone.png"></a>
+                            <a href="https://br.linkedin.com" target="_blank"><img src="Imagens_home/linkedin_icone.png"></a>
+                        </div>
+                    </div>
+                </div>    
+            </footer>
+        </div>
+    </body>
+</html>

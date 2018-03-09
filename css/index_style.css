@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech');
+
+/*Plano de fundo*/
+
+@media screen and (min-width: 768px) {
+    body{
+        background-color: #00CED1;
+        /*background: url("../Imagens_home/aloy_back.png") repeat -500px -20px;*/
+    }
+}
+body
+{
+    background: url("../Imagens_home/aloy_back.png") -500px -20px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding-top: 40px;
+}
+/*Fundo preto com a sombra de leve*/
+div#interface
+{
+    width: 90%;
+    height: 95%;
+    margin: -22px auto 0px auto;
+    background-color: rgba(0,0,0,.3);
+    box-shadow: 0px 0px 10px #FBFBEF;
+    padding: 5px;
+}
+
+ul#drop_list
+{
+    background-color: rgba(0,0,0,.5);
+    padding: 10px;
+    width: 400px;
+}
+
+button#bt_buscar:hover {
+    border-color: #00CED1;
+}
+
+button#bt_buscar:focus{
+    background-color: #00CED1;
+    color: white;
+}
+
+
+@media screen and (max-width: 768px) {
+
+
+    input#barra {
+        width: 100%;
+    }
+
+    ul#drop_list{
+        background: black;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    button#bt_enter{
+        position: absolute;
+        top: 0px;
+        right: 10px;
+    }
+
+}
+
+/*Login*/
+
+button#bt_enter{
+    float: right;
+}
+
+button#bt_enter:hover{
+    border-color: #00CED1;
+}
+
+button#bt_enter:focus{
+    background-color: #00CED1;
+    color: white;
+}
+
+/*Fim do Login*/
+
+div#cabecalhoModal{
+    background-color: #00CED1;
+    color: white;
+    text-align: center;
+}
+
+div#corpo ul.nav .nav-tabs{
+    text-align: center;
+    color: white;
+}
+div#corpo h4#lancamentos {
+    color: white;
+    display: block;
+    text-align: center;
+    font-family: 'Share Tech', sans-serif;
+    font-size: 50px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+ul#tab li a{
+    color:  white;
+    border-style: none;
+    transition: 1s;
+}
+
+h5
+{
+    border-bottom: 2px solid gray;
+}
+
+.row-direita
+{
+    display: block;
+    float: right;
+}
+
+.row-centro
+{
+    margin: 0px auto;
+}
+
+
+h3{
+    text-align: center;
+}
+
+p.lead{
+    min-height: 500px;
+    max-height: 700px;
+}
+/*Flutuar tab no meio*/
+.nav-tabs > li {
+    float:none;
+    display:inline-block;
+    zoom:1;
+    font-family: 'Share Tech', sans-serif;
+    font-size: x-large;
+}
+
+.nav-tabs > li > a {
+    color: white;
+}
+
+.nav-tabs {
+    text-align:center;
+}
+
+.nav-tabs > li > a:hover {
+    background: black;
+    border-color: black black #00CED1 black;
+}
+
+
+div.col-sm-4 ,.col-md-2{
+    top: 15px;
+}
+
+div#capas{
+    border: dashed;
+    background-color: rgba(0,0,0,.1);
+    border-color: rgba(0,0,0,.1);
+    transition: 2s;
+}
+
+div#capas:hover{
+    border-color: white;
+    background-color: white;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+a:hover{
+    text-decoration: none;
+    text-shadow: 0px 0px 5px #08cce9;
+    color: white;
+}
+
+a#titulo_jogo{
+    text-decoration: none;
+    color: black;
+}
+
+a#titulo_jogo:hover{
+    text-decoration: none;
+    text-shadow: 0px 0px 5px #08cce9;
+    color: black;
+}
+
+footer{
+    clear: both;
+    border-top: 2px solid white;
+}
+
+div#rodape{
+    display: block;
+    color: white;
+}
+
+div#rodape > a{
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
